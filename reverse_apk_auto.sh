@@ -35,7 +35,7 @@ fi
 sleep 1
 #check java package
 if [ -z "$c_jre" ] ; then
-	echo 'JRE/Java package is missing!'
+	echo 'Java package is missing!'
 	read -r -p 'Do you want to install JAVA? [Y/N] ' ijre
 	case $ijre in
 		[YyOo]* ) echo -e "Installing default-jre | Please wait! (This could take a minute)" ; $pkg $no $java 1>/dev/null && echo -e "$java is now installed!\n";;
