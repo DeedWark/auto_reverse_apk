@@ -49,7 +49,7 @@ if [[ -f "$checkfile" ]]; then
 else
 	mkdir ".apktool" 2>/dev/null && cd ".apktool" 2>/dev/null
 	curl -o apktool $apktool 1>/dev/null && chmod +x "apktool" && mv "apktool" "/usr/local/bin/"
-	echo -e "Downloading apktool.jar ..." && curl -o apktool.jar $apktool2 1>/dev/null && mv "apktool_2.4.1.jar" "apktool.jar" && chmod +x "apktool.jar" && mv "apktool.jar" "/usr/local/bin/"
+	echo -e "Downloading apktool.jar ..." && curl -o apktool.jar $apktool2 1>/dev/null && chmod +x "apktool.jar" && mv "apktool.jar" "/usr/local/bin/"
 	cd ".." && rm -rf ".apktool"
 fi
 
