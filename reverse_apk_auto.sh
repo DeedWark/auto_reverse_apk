@@ -10,8 +10,8 @@ fi
 
 #var
 os=$(grep -Ei "^ID=" /etc/os-release |cut -d '=' -f2)
-apktool="curl -o apktool https://raw.githubusercontent.com/iBotPeaches/ApkTool/master/scripts/linux/apktool"
-apktool2="curl -o apktool.jar https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.4.1.jar"
+apktool="https://raw.githubusercontent.com/iBotPeaches/ApkTool/master/scripts/linux/apktool"
+apktool2="https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.4.1.jar"
 
 echo -e "Setup...\n"
 
@@ -32,7 +32,7 @@ if [ -z "$c_wget" ] ; then
 		[nN]* ) echo "Try to install wget with '${pkg} wget'" ; exit 1;;
 	esac
 fi
-sleep 1
+#sleep 1
 #check java package
 if [ -z "$c_jre" ] ; then
 	echo 'Java package is missing!'
@@ -48,8 +48,8 @@ if [[ -f "$checkfile" ]]; then
 	echo -e "apktool is already installed. Perfect!\n"
 else
 	mkdir ".apktool" 2>/dev/null && cd ".apktool" 2>/dev/null
-	$apktool && chmod +x "apktool" && mv "apktool" "/usr/local/bin/"
-	$apktool2 && mv "apktool_2.4.1.jar" "apktool.jar" && chmod +x "apktool.jar" && mv "apktool.jar" "/usr/local/bin/"
+	curl -o apktool $apktool 1>/dev/null && chmod +x "apktool" && mv "apktool" "/usr/local/bin/"
+	echo -e "Downloading apktool.jar ..." && curl -o apktool.jar $apktool2 1>/dev/null && mv "apktool_2.4.1.jar" "apktool.jar" && chmod +x "apktool.jar" && mv "apktool.jar" "/usr/local/bin/"
 	cd ".." && rm -rf ".apktool"
 fi
 
