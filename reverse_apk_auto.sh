@@ -10,8 +10,8 @@ fi
 
 #var
 os=$(grep -Ei "^ID=" /etc/os-release |cut -d '=' -f2)
-apktool=$(curl -o apktool https://raw.githubusercontent.com/iBotPeaches/ApkTool/master/scripts/linux/apktool)
-apktool2=$(curl -o apktool.jar https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.4.1.jar)
+apktool="curl -o apktool https://raw.githubusercontent.com/iBotPeaches/ApkTool/master/scripts/linux/apktool"
+apktool2="curl -o apktool.jar https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.4.1.jar"
 
 echo -e "Setup...\n"
 
