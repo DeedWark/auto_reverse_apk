@@ -26,7 +26,7 @@ esac
 #check wget package
 if [ -z "$c_wget" ] ; then
 	echo 'wget is missing!'
-	read -r -p 'Do you want to install wget? [Y/N]' iwget
+	read -r -p 'Do you want to install wget? [Y/N] ' iwget
 	case $iwget in
 		[yYoO]* ) echo -e "Installing wget | Please wait!" ; $pkg $no curl 1>/dev/null && echo -e "wget is now installed!\n";;
 		[nN]* ) echo "Try to install wget with '${pkg} wget'" ; exit 1;;
@@ -36,7 +36,7 @@ sleep 1
 #check java package
 if [ -z "$c_jre" ] ; then
 	echo 'JRE/Java package is missing!'
-	read -r -p 'Do you want to install JAVA? [Y/N]' ijre
+	read -r -p 'Do you want to install JAVA? [Y/N] ' ijre
 	case $ijre in
 		[YyOo]* ) echo -e "Installing default-jre | Please wait! (This could take a minute)" ; $pkg $no $java 1>/dev/null && echo -e "$java is now installed!\n";;
 		[Nn]* ) echo "Try to install default-jre with '${pkg} ${java}'" ; exit 1;;
