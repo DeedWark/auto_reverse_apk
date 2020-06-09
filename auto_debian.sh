@@ -13,7 +13,7 @@ os=$(grep -Ei "^ID=" /etc/os-release |cut -d '=' -f2)
 apktool="https://raw.githubusercontent.com/iBotPeaches/ApkTool/master/scripts/linux/apktool"
 apktool2="https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.4.1.jar"
 
-echo -e "Setup...\n"
+echo -e "APK Disassembler"
 
 #check OS and package
 pkg="" ; java="" ; no="" ; c_curl="" ; c_jre=""
@@ -61,5 +61,5 @@ function help () {
 echo -e "Disassembling in progress..."
 apktool d "$1"
 dir=$(echo -e "${1}" |cut -d '.' -f1)
-echo -e "Disassembling is complete in $dir folder"
+echo -e "Disassembling done in $dir folder"
 ###################################################
