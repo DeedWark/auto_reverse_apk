@@ -53,7 +53,7 @@ fi
 
 function help () {
 	echo -ne "\nA tool for reverse engineering Android APK files
-Usage: dizapk app.apk
+Usage:            dizapk app.apk
 Reassembling APK: dizapk b app
 
 Use (dizapk -h / dizapk --help / dizapk help) to show this message\n"
@@ -73,4 +73,5 @@ if [[ $1 == "b" || $1 == "-b" ]] ; then
 	rea
 else
 	diz
+fi
 ###################################################
