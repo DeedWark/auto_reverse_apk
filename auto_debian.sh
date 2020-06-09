@@ -36,25 +36,25 @@ if [ -z "$c_jre" ] ; then
 	echo 'Java package is missing!'
 	read -r -p 'Do you want to install JAVA? [Y/N] ' ijre
 	case $ijre in
-		[YyOo]* ) echo -e "Installing default-jre | Please wait! (This could take a minute)" ; $pkg $no $java 1>/dev/null && echo -e "$java is now installed!\n";;
+		[YyOo]* ) echo -e "Installing default-jre | Please wait! (This could take a minute)" ; $pkg $no $java 1>/dev/null && echo -e "Java is now installed!\n";;
 		[Nn]* ) echo "Try to install default-jre with '${pkg} ${java}'" ; exit 1;;
 	esac
 fi
 #check & curl apktool jar && +x
 checkfile="/usr/local/bin/apktool"
 if [[ -f "$checkfile" ]]; then
-	echo -e "apktool is already installed. Perfect!\n"
+	echo ""
 else
 	mkdir ".apktool" 2>/dev/null && cd ".apktool" 2>/dev/null
-	curl -o apktool $apktool 1>/dev/null && chmod +x "apktool" && mv "apktool" "/usr/local/bin/"
-	echo -e "Downloading apktool.jar ..." && curl -o apktool.jar $apktool2 1>/dev/null && chmod +x "apktool.jar" && mv "apktool.jar" "/usr/local/bin/"
+	echo -e "\nDownloading apktool ...\n" && curl -o apktool $apktool 1>/dev/null && chmod +x "apktool" && mv "apktool" "/usr/local/bin/"
+	echo -e "\nDownloading apktool.jar ...\n" && curl -o apktool.jar $apktool2 1>/dev/null && chmod +x "apktool.jar" && mv "apktool.jar" "/usr/local/bin/"
 	cd ".." && rm -rf ".apktool"
 fi
 
 function help () {
-	echo -ne "\nThis script will simplify your life by execute automaticaly
-	          a tool for reverse engineering Android APK files.
-		  To use it: ./script app.apk\n"
+	echo -ne "\nThis script will simplify your life by execute automatically
+	a tool for reverse engineering Android APK files.
+	To use it: ./script app.apk\n"
 	  }
 [[ $1 == "--help" || $1 == "-h" || $1 == "help" || -z $1 ]] && help && exit 0
 
