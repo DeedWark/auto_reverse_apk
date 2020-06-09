@@ -52,14 +52,25 @@ else
 fi
 
 function help () {
-	echo -ne "\nThis script will simplify your life by execute automatically
-	a tool for reverse engineering Android APK files.
-	To use it: ./script app.apk\n"
+	echo -ne "\nA tool for reverse engineering Android APK files
+Usage: dizapk app.apk
+Reassembling APK: dizapk b app
+
+Use (dizapk -h / dizapk --help / dizapk help) to show this message\n"
 	  }
 [[ $1 == "--help" || $1 == "-h" || $1 == "help" || -z $1 ]] && help && exit 0
 
-echo -e "Disassembling in progress..."
-apktool d "$1"
-dir=$(echo -e "${1}" |cut -d '.' -f1)
-echo -e "Disassembling done in $dir folder"
+function diz () {
+	apktool d "$1"
+	dir=$(echo -e "${1}" |cut -d '.' -f1)
+	echo -e "Disassembling done in ${dir} folder"
+}
+function rea () {
+	apktool b "$1"
+	echo -e "Reassembling APK done: ${dir}.apk"
+}
+if [[ $1 == "b" || $1 == "-b" ]] ; then
+	rea
+else
+	diz
 ###################################################
