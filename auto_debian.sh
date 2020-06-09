@@ -19,9 +19,6 @@ echo -e "Setup...\n"
 pkg="" ; java="" ; no="" ; c_curl="" ; c_jre=""
 case $os in
 	[Dd]ebi* | [Uu]bun* | [Ll]inux[Mm]int* | [Kk]ali* ) pkg="apt-get install" ; java="default-jre" ; no="-y" ; c_curl=$(dpkg -s curl 2>/dev/null) ; c_jre=$(dpkg -s default-jre 2>/dev/null);;
-	[Aa]rch* ) pkg="pacman -S" ; no="--noconfirm" ; java="jre-openjdk" ; c_curl=$(pacman -Qs curl 2>/dev/null) ; c_jre=$(pacman -Qs jre-openjdk 2>/dev/null);;
-	[Cc]ent* | [Ff]edo* | [Oo]l* | [Rr]ed[*Hh]* ) pkg="yum install" ; java="java-11-openjdk" ; no="-y" ; c_curl=$(yum list installed curl) ; c_jre=$(yum list installed java-11-openjdk);;
-	[Oo]pen[sS]* ) pkg="zypper install" ; no="-y" ; java="java-11-openjdk" ; c_curl=$(zypper se curl |grep -i "wget" 2>/dev/null) ; c_jre=$(zypper se java-11-openjdk |grep -i "java-11-openjdk" 2>/dev/null);;
 esac
 
 #check curl package
