@@ -60,7 +60,7 @@ function diz () {
 	echo -e "Disassembling done in ${dir} folder"
 }
 function rea () {
-	apktool b "$1"
+	java -jar /usr/local/bin/apktool.jar b "$1"
 	echo -e "Reassembling APK done: ${dir}.apk"
 }
 if [[ $1 == "b" || $1 == "-b" ]] ; then
