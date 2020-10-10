@@ -1,4 +1,4 @@
 # auto_reverse_apk
-Just a try for automation
+This tool allows you to decompile an APK and thus have access to the application's files -> [Apktool](https://ibotpeaches.github.io/Apktool/)
 
-BUT IT'S A FAIL!
+So I tried an automation (For Linux)
